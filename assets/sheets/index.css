@@ -1,0 +1,122 @@
+header {
+  position: absolute;
+  opacity: 0.8;
+}
+.section1 {
+  position: relative;
+  min-height: 100vh;
+}
+.section1 > video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+  position: absolute;
+}
+.section1 > .reservation {
+  position: absolute;
+  left: 5%;
+  width: 20%;
+  top: 30vh;
+}
+.section1 > .reservation > .description {
+  background: #ffffffa8;
+  padding: 8px;
+  text-align: center;
+}
+.section1 > .reservation > .reserveBtnContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+.reserveBtnContainer > .reserveBtn {
+  background-color: #afb4f4;
+  border: 1px solid #9298f2;
+  color: #000;
+  font-weight: 900;
+  padding: 10px 60px;
+}
+.section1 > .menuContainer {
+  position: absolute;
+  width: 100vw;
+  bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  color: #fff;
+}
+.menuContainer > ul {
+  margin: 0 auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  font-size: 1.4rem;
+}
+.menuContainer li > a {
+  color: #fff;
+}
+.menuContainer li > a:hover {
+  color: #afb4f4;
+}
+/* 
+section 2: image slider
+ */
+.section2 {
+  background-color: #9298f2;
+  padding: 70px;
+}
+
+.section2 .image_container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 20%;
+}
+.section2 .image_container > img {
+  width: 30%;
+  border-radius: 20px;
+}
+.section2 .carousel-indicators {
+  bottom: -45px;
+}
+@media (max-width: 768px) {
+  .section2 .image_container {
+    flex-direction: column;
+  }
+  .section2 .image_container > img {
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+@media (max-width: 1200px) {
+  .section2 .image_container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 8%;
+  }
+}
+
+/* 
+section 3: about us
+ */
+
+ .ceo_image{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+ }
+ .section3>.image_container{
+     height: 100vh;
+ }
+ .section3 .text-container{
+    border-radius: 20px;
+
+ }
+ .section3 .text-container p{
+    text-align: justify;
+}
+.section3>.text-wrapper{
+    display: flex;
+    align-items: center;    
+}

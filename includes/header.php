@@ -1,7 +1,7 @@
 <header>
         <div class="logo-container">
             <a href="./index.html">
-                <img src="logo1.png" alt="Hotel" class="logo-img" />
+                <img src="assets/images/logo1.png" alt="Hotel" class="logo-img" />
             </a>
         </div>
 

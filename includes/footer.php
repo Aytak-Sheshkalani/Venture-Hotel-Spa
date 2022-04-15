@@ -31,7 +31,7 @@
                                 <a href="#"></a>
                             </li>
                             <li>
-                                <a href="#"><img style="width: 20px;" src="Images/question-mark.png"></a>
+                                <a href="#"><img style="width: 20px;" src="assets/images/question-mark.png"></a>
                             </li>
                             <li>
                                 <a href="#"></a>

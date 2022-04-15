@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
+
 :root {
     --headerHeight: 100px;
     --white: #afb4f445;
@@ -34,7 +36,7 @@ a:active {
 }
 
 header {
-    background-color: #afb4f445;
+    background-color: #afb4f4a8;
     top: 0px;
     width: 100%;
     display: flex;
