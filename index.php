@@ -3,8 +3,14 @@ include 'Classes/Template.php';
 $template = new Template();
 $template->initialize_page(
     "Venture Hotel & Spa",
-    "<link rel=\"stylesheet\" href=\"assets/sheets/index.css\" />",
-    "<script src=\"assets/js/index.js\"></script>"
+    "<link rel=\"stylesheet\" href=\"assets/sheets/index.css\" />
+    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css\" />",
+    "
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js\"></script>
+    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js\" ></script>
+    <script src=\"assets/js/index.js\"></script>
+    <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.min.js\" integrity=\"sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=\" crossorigin=\"anonymous\"></script>
+    "
 );
 $template->start_template();
 ?>
@@ -22,7 +28,7 @@ $template->start_template();
             Experience luxury at our iconic Venture Hotel beachfront property. Book now at our official site.
         </div>
         <div class="reserveBtnContainer">
-            <button type="button" class="btn btn-primary reserveBtn">Book Now</button>
+            <button type="button" class="btn btn-primary reserveBtn" onclick="showModal()">Book Now</button>
         </div>
     </div>
     <div class="menuContainer">
@@ -123,7 +129,41 @@ $template->start_template();
     </div>
 </div>
 
-
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Please choose a date</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form action="/action_page.php">
+                    <div class="date-container">
+                        <div>
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="From"  id='from_date'
+                                    disabled />
+                                <input type="hidden" name="from_date" id="from_date_hidden" />
+                                <label for="From" class="form__label">Arrive Date:</label>
+                            </div>
+                            <div type="text" id="from"></div>
+                        </div>
+                        <div>
+                            <div class="form__group field">
+                                <input type="input" class="form__field" placeholder="To" id='to_date'
+                                    disabled />
+                                <input type="hidden" name="to_date" id="to_date_hidden" />
+                                <label for="To" class="form__label">Depart Date:</label>
+                            </div>
+                            <div type="text" id="to" ></div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-info">Check Availability</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

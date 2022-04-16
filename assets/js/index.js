@@ -1,4 +1,46 @@
 window.addEventListener("load", function () {
-    var myCarousel = document.querySelector('#carouselExampleIndicators')
-    var carousel = new bootstrap.Carousel(myCarousel)
+  var myCarousel = document.querySelector("#carouselExampleIndicators");
+  var carousel = new bootstrap.Carousel(myCarousel);
+  var dateFormat = "mm/dd/yy",
+    from = $("#from")
+      .datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+      })
+      .on("change", function () {
+        to.datepicker("option", "minDate", getDate(this));
+        $('#from_date').val(getDate(this).toDateString());
+        $('#from_date_hidden').val(getDate(this).getTime());
+      }),
+    to = $("#to")
+      .datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+      })
+      .on("change", function () {
+        from.datepicker("option", "maxDate", getDate(this));
+        $('#to_date').val(getDate(this).toDateString());
+        $('#to_date_hidden').val(getDate(this).getTime());
+    });
+      
+
+  function getDate(element) {
+    var date;
+    try {
+      date = $.datepicker.parseDate(dateFormat, element.value);
+    } catch (error) {
+      date = null;
+    }
+
+    return date;
+  }
 });
+showModal = function () {
+  var myModalEl = document.getElementById("myModal");
+  var myModal = new bootstrap.Modal(myModalEl, {
+    keyboard: false,
+  });
+  myModal.show();
+};
