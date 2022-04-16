@@ -1,46 +1,29 @@
 window.addEventListener("load", function () {
   var myCarousel = document.querySelector("#carouselExampleIndicators");
   var carousel = new bootstrap.Carousel(myCarousel);
-  var dateFormat = "mm/dd/yy",
-    from = $("#from")
-      .datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1,
-      })
-      .on("change", function () {
-        to.datepicker("option", "minDate", getDate(this));
-        $('#from_date').val(getDate(this).toDateString());
-        $('#from_date_hidden').val(getDate(this).getTime());
-      }),
-    to = $("#to")
-      .datepicker({
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1,
-      })
-      .on("change", function () {
-        from.datepicker("option", "maxDate", getDate(this));
-        $('#to_date').val(getDate(this).toDateString());
-        $('#to_date_hidden').val(getDate(this).getTime());
-    });
-      
 
-  function getDate(element) {
-    var date;
-    try {
-      date = $.datepicker.parseDate(dateFormat, element.value);
-    } catch (error) {
-      date = null;
-    }
+  // start image modal
+  // Get the modal
+  var modal = document.getElementById("imageModal");
 
-    return date;
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var imgs = document.getElementsByClassName("galleryImg");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  for (img of imgs) {
+    img.onclick = function () {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    };
   }
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+  // end image modal
 });
-showModal = function () {
-  var myModalEl = document.getElementById("myModal");
-  var myModal = new bootstrap.Modal(myModalEl, {
-    keyboard: false,
-  });
-  myModal.show();
-};

@@ -1,5 +1,5 @@
 <?php
-include 'Classes/Database.php';
+require_once 'Classes/Database.php';
 class Template
 {
     private $title;
@@ -8,6 +8,7 @@ class Template
     function __construct(){
         $this->dbc = new dbConnect();
     }
+
     function initialize_page($title,$header,$footer){
         $this->title = $title;
         $this->header = $header;

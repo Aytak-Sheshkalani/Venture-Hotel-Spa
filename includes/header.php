@@ -13,7 +13,7 @@
                 <a href="./Services.html">
                     <li>Services</li>
                 </a>
-                <a href="./Booking.html">
+                <a href="#" onclick="showModal()">
                     <li>Booking</li>
                 </a>
             </ul>

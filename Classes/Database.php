@@ -30,6 +30,23 @@ class dbConnect
         return $string;
     }
 
+    public function query($query, $params=[]){
+        $stmt = mysqli_stmt_init($this->dbc);
+        mysqli_stmt_prepare($stmt, $query);
+        if(count($params)){
+            $param_types = implode('',array_keys($params));
+            $params_values = array_values($params);
+            mysqli_stmt_bind_param($stmt, $param_types, ...$params_values);
+        }
+        $result = mysqli_stmt_execute($stmt);
+        $res = $stmt->get_result();
+        $output = [];
+        while($row = $res->fetch_assoc()){
+            $output[] = $row;
+        }
+        return $output;
+    }
+    
     public function get_dbc()
     {
         return $this->dbc;

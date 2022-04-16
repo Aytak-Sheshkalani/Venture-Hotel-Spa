@@ -1,4 +1,9 @@
 <?php
+/*file specific includes*/
+require_once 'Classes/Attractions.php';
+$attractions = new Attraction();
+$attractions->fetch_all_attractions();
+/*general template*/
 include 'Classes/Template.php';
 $template = new Template();
 $template->initialize_page(
@@ -19,8 +24,8 @@ $template->start_template();
 
 
 <div class="section1">
-    <video autoplay muted loop id="myVideo">
-        <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+    <video autoplay muted loop>
+        <source src="assets/videos/index-demo.mp4"
             type="video/mp4">
     </video>
     <div class="reservation">
@@ -48,36 +53,29 @@ $template->start_template();
 <div class="section2">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+            <?php
+            for($j=0; $j<ceil($attractions->get_attraction_count()/3);$j++){
+            ?>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $j; ?>" class="active"
+                aria-current="true" aria-label="Slide <?php echo ($j+1); ?>"></button>
+            <?php } ?>
         </div>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="image_container">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="1">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="2">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="3">
-                </div>
+                <?php 
+                $activeItemClass ='active';
+                for($i = 0; $i < $attractions->get_attraction_count(); $i+=3){ 
+                        echo '<div class="carousel-item '.$activeItemClass.'">
+                                <div class="image_container">'; 
+                        for($j=0; $j<3;$j++){
+                            $attraction = @$attractions->attractions[$i+$j];    
+                            if($attraction)
+                                echo '<img src="'.$attraction['attraction_image'].'" class="d-block gallery-item galleryImg" alt="'.$attraction['attraction_name'].'">';
+                        }
+                        echo '</div></div>';   
+                        $activeItemClass = ''; 
+                    }
+                ?>
             </div>
-            <div class="carousel-item ">
-                <div class="image_container">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="12">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="22">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="33">
-                </div>
-            </div>
-            <div class="carousel-item ">
-                <div class="image_container">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="13">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="24">
-                    <img src="https://via.placeholder.com/350x150" class="d-block " alt="35">
-                </div>
-            </div>
-
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
@@ -100,7 +98,7 @@ $template->start_template();
             <div class="my-3 p-3">
                 <h2 class="display-5">Our Story</h2>
             </div>
-            <div class="text-container bg-dark text-white shadow-sm mx-auto p-md-5">
+            <div class="text-container bg-dark text-white shadow-sm mx-auto p-5">
                 <p>
                     With individual brands and many hotels internationally, Venture Hotel Group is
                     one of the largest, most dynamic hotel groups in the world. We take pride in our company's strong
@@ -129,43 +127,18 @@ $template->start_template();
     </div>
 </div>
 
-<div class="modal" tabindex="-1" id="myModal">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Please choose a date</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <form action="/action_page.php">
-                    <div class="date-container">
-                        <div>
-                            <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="From"  id='from_date'
-                                    disabled />
-                                <input type="hidden" name="from_date" id="from_date_hidden" />
-                                <label for="From" class="form__label">Arrive Date:</label>
-                            </div>
-                            <div type="text" id="from"></div>
-                        </div>
-                        <div>
-                            <div class="form__group field">
-                                <input type="input" class="form__field" placeholder="To" id='to_date'
-                                    disabled />
-                                <input type="hidden" name="to_date" id="to_date_hidden" />
-                                <label for="To" class="form__label">Depart Date:</label>
-                            </div>
-                            <div type="text" id="to" ></div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-outline-info">Check Availability</button>
-                </form>
-            </div>
-        </div>
-    </div>
+
+<div id="imageModal" class="imageModal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
+
+  <!-- Modal Caption (Image Text) -->
+  <div id="caption"></div>
 </div>
-
-
 
 
 

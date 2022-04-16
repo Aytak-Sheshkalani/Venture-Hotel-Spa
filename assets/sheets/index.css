@@ -9,9 +9,10 @@ header {
 .section1 > video {
   width: 100vw;
   height: 100vh;
-  object-fit: fill;
+  object-fit: cover;
   position: absolute;
 }
+
 .section1 > .reservation {
   position: absolute;
   left: 5%;
@@ -61,10 +62,14 @@ header {
 section 2: image slider
  */
 .section2 {
-  background-color: #9298f2;
+  position: relative;
   padding: 70px;
 }
-
+.carousel-control-next,
+.carousel-control-prev,
+.carousel-indicators {
+  filter: invert(100%);
+}
 .section2 .image_container {
   display: flex;
   justify-content: space-around;
@@ -72,19 +77,38 @@ section 2: image slider
 }
 .section2 .image_container > img {
   width: 30%;
+  max-width: 30%;
   border-radius: 20px;
 }
 .section2 .carousel-indicators {
   bottom: -45px;
 }
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .section2 .image_container {
     flex-direction: column;
+  }
+  .section2 .image_container > img {
+    max-width: none;
   }
   .section2 .image_container > img {
     width: 100%;
     border-radius: 0px;
   }
+
+  .section2 {
+    position: relative;
+    padding: 0px;
+    text-align: center;
+  }
+  .menuContainer > ul {
+      flex-direction: column;
+  }
+}
+@media (max-width: 1200px) {
+    .menuContainer > ul {
+        width: 100%;
+        font-size: 1.4rem;
+      }
 }
 @media (max-width: 1200px) {
   .section2 .image_container {
@@ -98,93 +122,106 @@ section 2: image slider
 section 3: about us
  */
 
- .ceo_image{
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-    position: relative;
-    z-index: 1;
- }
- .section3>.image_container{
-     height: 100vh;
- }
- .section3 .text-container{
-    border-radius: 20px;
-
- }
- .section3 .text-container p{
-    text-align: justify;
+.ceo_image {
+  width: 100%;
+  height: 160%;
+  border-radius: 20px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
 }
-.section3>.text-wrapper{
-    display: flex;
-    align-items: center;    
+.section3 .image-container {
+  height: 75vh;
 }
-.date-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    z-index: 2;
+.section3 .text-container {
+  border-radius: 20px;
+}
+.section3 .text-container p {
+  text-align: justify;
+}
+.section3 > .text-wrapper {
+  display: flex;
+  align-items: center;
 }
 
-.form__group {
-    position: relative;
-    padding: 15px 0 0;
-    margin-top: 10px;
-    width: 100%;
+/* image modal */
+/* Style the Image Used to Trigger the Modal */
+.galleryImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
   }
   
-  .form__field {
-    font-family: inherit;
-    width: 100%;
-    border: 0;
-    border-bottom: 2px solid #9b9b9b;
-    outline: 0;
-    font-size: 1.3rem;
-    color: #000;
-    padding: 7px 0;
-    background: transparent;
-    transition: border-color 0.2s;
-  }
-  .form__field::placeholder {
-    color: transparent;
-  }
-  .form__field:placeholder-shown ~ .form__label {
-    font-size: 1rem;
-    cursor: text;
-    top: 30px;
-  }
+  .galleryImg:hover {opacity: 0.7;}
   
-  .form__label {
-    position: absolute;
+  /* The Modal (background) */
+  .imageModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
     top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 1rem;
-    color: #9b9b9b;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    z-index: 99;
   }
   
-  .form__field:focus {
-    padding-bottom: 6px;
-    font-weight: 700;
-    border-width: 3px;
-    border-image: linear-gradient(to right, #9b9b9b, #9b9b9b);
-    border-image-slice: 1;
+  /* Modal Content (Image) */
+  .imageModal .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
   }
-  .form__field:focus ~ .form__label {
+  
+  /* Caption of Modal Image (Image Text) - Same Width as the Image */
+  .imageModal #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* Add Animation - Zoom in the Modal */
+  .imageModal .modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
     position: absolute;
-    top: 0;
-    display: block;
-    transition: 0.2s;
-    font-size: 1rem;
-    color: #9298f2;
-    font-weight: 700;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
   }
   
-  /* reset input */
-  .form__field:required, .form__field:invalid {
-    box-shadow: none;
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
   }
