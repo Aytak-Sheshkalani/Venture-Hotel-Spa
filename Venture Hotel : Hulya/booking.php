@@ -9,11 +9,13 @@ $template = new Template();
 $template->initialize_page(
     "Venture Hotel & Spa",
     "<link rel=\"stylesheet\" href=\"assets/sheets/index.css\" />
+	<link rel=\"stylesheet\" href=\"assets/sheets/bookingstyle.css\" />
     <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css\" />",
     "
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js\"></script>
     <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js\" ></script>
     <script src=\"assets/js/index.js\"></script>
+	<script src=\"assets/js/slide.js\"></script>
     <script src=\"https://code.jquery.com/ui/1.12.1/jquery-ui.min.js\" integrity=\"sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=\" crossorigin=\"anonymous\"></script>
     "
 );
@@ -41,17 +43,17 @@ $template->start_template();
 	
 			  <div class="mySlides">
 			  <div class="numbertext">1 / 6</div>
-			  <img src="../Venture-Hotel-Spa-main/Images/1.png" style="width:75%">
+			  <img src="../Venture-Hotel-Spa-main/assets/Images/1.png" style="width:75%">
 			  </div>
 
 			  <div class="mySlides">
 				<div class="numbertext">2 / 6</div>
-				<img src="../Venture-Hotel-Spa-main/Images/2big.png" style="width:75%">
+				<img src="../Venture-Hotel-Spa-main/assets/Images/2big.png" style="width:75%">
 			  </div>
 
 			  <div class="mySlides">
 				<div class="numbertext">3 / 6</div>
-				<img src="../Venture-Hotel-Spa-main/Images/3big.png" style="width:75%">
+				<img src="../Venture-Hotel-Spa-main/assets/Images/3big.png" style="width:75%">
 			  </div>
 
 			  <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -63,13 +65,13 @@ $template->start_template();
 
   <div class="row">
     <div class="column">
-      <img class="demo cursor" src="../Venture-Hotel-Spa-main/Images/1sml.png" style="width:100%" onclick="currentSlide(1)" >
+      <img class="demo cursor" src="../Venture-Hotel-Spa-main/assets/Images/1sml.png" style="width:100%" onclick="currentSlide(1)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="../Venture-Hotel-Spa-main/Images/2.png" style="width:100%" onclick="currentSlide(2)" >
+      <img class="demo cursor" src="../Venture-Hotel-Spa-main/assets/Images/2.png" style="width:100%" onclick="currentSlide(2)" >
     </div>
     <div class="column">
-      <img class="demo cursor" src="../Venture-Hotel-Spa-main/Images/3.png" style="width:100%" onclick="currentSlide(3)">
+      <img class="demo cursor" src="../Venture-Hotel-Spa-main/assets/Images/3.png" style="width:100%" onclick="currentSlide(3)">
     </div>
 	  
 </div>
