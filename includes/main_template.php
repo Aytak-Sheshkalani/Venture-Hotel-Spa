@@ -37,7 +37,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/booking.php">
+                    <form action="booking.php">
                         <div class="date-container">
                             <div>
                                 <div class="form__group field">
