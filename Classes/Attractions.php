@@ -3,7 +3,7 @@ require_once 'Classes/Database.php';
 class Attraction {
     public $attractions;
     function __construct() {
-        $this->dbc = new dbConnect();
+        $this->dbc = new DbConnect();
     }
     function get_attraction_info($attraction_id) {
         $query = "SELECT * FROM attractions WHERE attraction_id = ?";

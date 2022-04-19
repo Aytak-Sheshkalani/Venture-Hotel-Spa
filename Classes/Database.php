@@ -1,5 +1,5 @@
 <?php
-class dbConnect
+class DbConnect
 {
     const DB_USER = 'root';
     const DB_PASSWORD = '';

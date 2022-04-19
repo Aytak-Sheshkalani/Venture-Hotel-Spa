@@ -6,7 +6,7 @@ class Template
     private $header;
     private $footer;
     function __construct(){
-        $this->dbc = new dbConnect();
+        $this->dbc = new DbConnect();
     }
 
     function initialize_page($title,$header,$footer){
