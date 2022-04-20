@@ -24,11 +24,12 @@ $template->start_template();
 <div class="container-l1">
     <div class="item-l1">
         <p>Stay Dates (10 Nights)</p><br>
+		
         <p style="font-size: medium;">Sun, Apr 3, 2022 - Wed, Apr 13, 2022</p>
     </div>
     <div class="item-l1">
         <p>Rooms & Guests</p><br>
-        <button style="float: right; padding: 6px 40px; ">EDIT</button>
+        <button style="float: right; padding: 6px 40px; " onclick="showModal()">EDIT</button>
         <p style="font-size: medium;">1Room: 2 Adult/Room</p>
     </div>
 </div>
