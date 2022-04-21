@@ -28,7 +28,7 @@
                 <a href="./Contact.php">
                     <li class="active">Contact</li>
                 </a>
-                <a href="./Services.html">
+                <a href="./Service.php">
                     <li>Services</li>
                 </a>
                 <a href="./Booking.html">
@@ -91,7 +91,7 @@
                     <div class="col-sm-6 col-md-3 item ">
                         <ul>
                             <li><a href="Booking.html ">Booking</a></li>
-                            <li><a href="Services.html ">Services</a></li>
+                            <li><a href="Service.php ">Services</a></li>
                             <li><a href="Contact.php ">Contact</a></li>
                         </ul>
                     </div>

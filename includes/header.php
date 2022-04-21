@@ -10,7 +10,7 @@
                 <a href="./Contact.php">
                     <li>Contact</li>
                 </a>
-                <a href="./Services.html">
+                <a href="./Service.php">
                     <li>Services</li>
                 </a>
                 <a href="#" onclick="showModal()">

@@ -45,12 +45,12 @@ $template->start_template();
                 <a href="#">Gift Cards</a>
             </li>
             <li>
-                <a href="#">About Us</a>
+                <a href="#about">About Us</a>
             </li>
         </ul>
     </div>
 </div>
-<div class="section2">
+<div class="section2" id="gallery">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <?php
@@ -89,7 +89,7 @@ $template->start_template();
         </button>
     </div>
 </div>
-<div class="section3 d-md-flex flex-md-equal w-100 my-md-3 ps-md-3 ">
+<div class="section3 d-md-flex flex-md-equal w-100 my-md-3 ps-md-3 " id="about">
     <div class="image-container col-md-5 text-center text-white overflow-hidden">
         <img src="assets/images/ceo.jpg" class="ceo_image" />
     </div>
