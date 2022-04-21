@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 09, 2022 at 02:29 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Host: localhost
+-- Generation Time: Apr 22, 2022 at 01:45 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Venture_Hotel`
+-- Database: `backend`
 --
 
 -- --------------------------------------------------------
@@ -30,8 +30,49 @@ SET time_zone = "+00:00";
 CREATE TABLE `attractions` (
   `attraction_id` int(11) NOT NULL,
   `attraction_name` varchar(255) DEFAULT NULL,
-  `attraction_description` varchar(555) DEFAULT NULL
+  `attraction_description` varchar(555) DEFAULT NULL,
+  `attraction_image` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attractions`
+--
+
+INSERT INTO `attractions` (`attraction_id`, `attraction_name`, `attraction_description`, `attraction_image`) VALUES
+(1, 'Luxury Hotel', NULL, 'assets/images/attractions/lux-hotel.jpg'),
+(2, 'Luxury Pool', NULL, 'assets/images/attractions/pool.jpg'),
+(3, 'Luxury Hotel', NULL, 'assets/images/attractions/lux-hotel.jpg'),
+(4, 'Luxury Pool', NULL, 'assets/images/attractions/pool.jpg'),
+(5, 'Luxury Hotel', NULL, 'assets/images/attractions/lux-hotel.jpg'),
+(6, 'Luxury Pool', NULL, 'assets/images/attractions/pool.jpg'),
+(7, 'Luxury Hotel', NULL, 'assets/images/attractions/lux-hotel.jpg'),
+(8, 'Luxury Pool', NULL, 'assets/images/attractions/pool.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Booking`
+--
+
+CREATE TABLE `Booking` (
+  `bookingID` int(11) NOT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `roomID` int(11) DEFAULT NULL,
+  `roomType` int(11) DEFAULT NULL,
+  `dateFrom` date DEFAULT NULL,
+  `dateTo` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Booking`
+--
+
+INSERT INTO `Booking` (`bookingID`, `userID`, `roomID`, `roomType`, `dateFrom`, `dateTo`) VALUES
+(1, 1, 1, 1, '2022-04-12', '2022-04-27'),
+(2, 2, 2, 2, '2022-04-08', '2022-04-14'),
+(3, 3, 3, 3, '2022-04-12', '2022-04-13'),
+(4, 4, 4, 4, '2022-04-01', '2022-04-29'),
+(5, 5, 5, 5, '2022-04-03', '2022-04-09');
 
 -- --------------------------------------------------------
 
@@ -57,6 +98,31 @@ CREATE TABLE `employees` (
   `hire_date` int(11) DEFAULT NULL,
   `hourly_wageCAD` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `comments` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `name`, `phone`, `email`, `comments`) VALUES
+(1, 'Farshad Kazemi', '226-8983-9453', 'farshad.kazemi@uwaterloo.ca', 'awdawdawd'),
+(2, 'Farshad Kazemi', '226-8983-9453', 'farshad.kazemi@uwaterloo.ca', 'adawdawd'),
+(3, 'Farshad Kazemi', '226-8983-9453', 'farshad.kazemi@uwaterloo.ca', 'awdawdawd'),
+(4, 'Farshad Kazemi', '226-8983-9453', 'farshad.kazemi@uwaterloo.ca', 'awdwad'),
+(5, 'Farshad Kazemi', '226-8983-9453', 'farshad.kazemi@uwaterloo.ca', 'awd');
 
 -- --------------------------------------------------------
 
@@ -340,6 +406,12 @@ ALTER TABLE `employees`
   ADD KEY `emp2` (`job_id`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `job_type`
 --
 ALTER TABLE `job_type`
@@ -419,6 +491,18 @@ ALTER TABLE `transactions`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `attractions`
+--
+ALTER TABLE `attractions`
+  MODIFY `attraction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `people`
