@@ -18,14 +18,14 @@
 
     <header>
         <div class="logo-container">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img src="logo1.png" alt="Hotel" class="logo-img" />
             </a>
         </div>
 
         <div class="menu-container">
             <ul>
-                <a href="./Contact.html">
+                <a href="./Contact.php">
                     <li class="active">Contact</li>
                 </a>
                 <a href="./Services.html">
@@ -92,7 +92,7 @@
                         <ul>
                             <li><a href="Booking.html ">Booking</a></li>
                             <li><a href="Services.html ">Services</a></li>
-                            <li><a href="Contact.html ">Contact</a></li>
+                            <li><a href="Contact.php ">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item ">

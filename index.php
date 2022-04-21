@@ -39,7 +39,7 @@ $template->start_template();
     <div class="menuContainer">
         <ul>
             <li>
-                <a href="#">Gallery</a>
+                <a href="#gallery">Gallery</a>
             </li>
             <li>
                 <a href="#">Gift Cards</a>

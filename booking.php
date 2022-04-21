@@ -108,7 +108,7 @@ $template->start_template();
         <p>This hotel has a smoke-free policy<br>
             Hotel was built in 1990<br>
             Rooms were renovated in 2017</p>
-        <button id="button-service" onclick="window.location.href='registration-form/index.html'">Book Now</button>
+        <button id="button-service" onclick="window.location.href='registration-form/index.php'">Book Now</button>
 
     </div>
 </div>

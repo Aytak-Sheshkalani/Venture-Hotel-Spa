@@ -1,13 +1,13 @@
 <header>
         <div class="logo-container">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img src="assets/images/logo1.png" alt="Hotel" class="logo-img" />
             </a>
         </div>
 
         <div class="menu-container">
             <ul>
-                <a href="./Contact.html">
+                <a href="./Contact.php">
                     <li>Contact</li>
                 </a>
                 <a href="./Services.html">

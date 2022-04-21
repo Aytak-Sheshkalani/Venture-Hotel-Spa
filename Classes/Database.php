@@ -1,4 +1,6 @@
 <?php
+// Aytak Sheshkalani Ghalibaf 8741242
+
 class DbConnect
 {
     const DB_USER = 'root';
@@ -30,21 +32,35 @@ class DbConnect
         return $string;
     }
 
-    public function query($query, $params=[]){
+    public function query($query, $params=[],$isSelect=true){
         $stmt = mysqli_stmt_init($this->dbc);
         mysqli_stmt_prepare($stmt, $query);
         if(count($params)){
-            $param_types = implode('',array_keys($params));
-            $params_values = array_values($params);
-            mysqli_stmt_bind_param($stmt, $param_types, ...$params_values);
+            $param_types = [];
+            $params_values = [];
+            foreach($params as $param){
+                $param_types[] = $param['type'];
+                if($param['type']=='s')
+                    $params_values[] = $this->prepare_string($param['value']);
+                elseif($param['type']=='i')
+                    $params_values[] = (int)$param['value'];
+                else
+                    $params_values[] = $param['value'];
+
+            }
+            mysqli_stmt_bind_param($stmt, implode('',$param_types), ...$params_values);
         }
         $result = mysqli_stmt_execute($stmt);
         $res = $stmt->get_result();
-        $output = [];
-        while($row = $res->fetch_assoc()){
-            $output[] = $row;
+        if($isSelect){
+            if(!$res){
+                return false;
+            }
+            $output = $res->fetch_all(MYSQLI_ASSOC);
+            return $output;
+        }else{
+            return $stmt;
         }
-        return $output;
     }
     
     public function get_dbc()

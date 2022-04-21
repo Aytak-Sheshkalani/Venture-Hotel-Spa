@@ -19,7 +19,7 @@
                         <ul>
                             <li><a href="Booking.html">Booking</a></li>
                             <li><a href="Services.html">Services</a></li>
-                            <li><a href="Contact.html">Contact</a></li>
+                            <li><a href="Contact.php">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item">
