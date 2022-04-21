@@ -12,22 +12,13 @@ a {
     text-decoration: none;
 }
 
-
-/* visited link */
-
 a:visited {
     color: rgb(109, 51, 109);
 }
 
-
-/* mouse over link */
-
 a:hover {
     color: hotpink;
 }
-
-
-/* selected link */
 
 a:active {
     color: blue;

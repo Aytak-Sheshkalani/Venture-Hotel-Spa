@@ -9,7 +9,7 @@
     <head>
     <link rel="stylesheet" href="style.css" />
     </head>
-    <body>
+    <body style="background-image: url('hotel-view.jpg');">
         <table>
             <thead>
                 <tr align="left">

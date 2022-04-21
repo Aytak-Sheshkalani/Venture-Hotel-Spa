@@ -18,17 +18,17 @@
 
     <header>
         <div class="logo-container">
-            <a href="./index.php">
+            <a href="./index.html">
                 <img src="logo1.png" alt="Hotel" class="logo-img" />
             </a>
         </div>
 
         <div class="menu-container">
             <ul>
-                <a href="./Contact.php">
+                <a href="./Contact.html">
                     <li class="active">Contact</li>
                 </a>
-                <a href="./Service.php">
+                <a href="./Services.html">
                     <li>Services</li>
                 </a>
                 <a href="./Booking.html">
@@ -44,6 +44,7 @@
             <img src="Images/check.png" alt="check.png" id="submit-image">
             <h2 style="text-align: center; padding-top: 30px;">Thank you for submitting your feedback.</h1>
             <h4 style="text-align: center;">We really appreciate your feedback.</h3>
+</br>
         </div>
 
         </br>
@@ -91,8 +92,8 @@
                     <div class="col-sm-6 col-md-3 item ">
                         <ul>
                             <li><a href="Booking.html ">Booking</a></li>
-                            <li><a href="Service.php ">Services</a></li>
-                            <li><a href="Contact.php ">Contact</a></li>
+                            <li><a href="Services.html ">Services</a></li>
+                            <li><a href="Contact.html ">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-md-3 item ">
