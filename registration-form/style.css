@@ -157,3 +157,7 @@ form .button-area{
     text-align: center;
   }
 }
+.exit{
+	float: right;
+}
+

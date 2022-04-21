@@ -39,7 +39,7 @@
       </div>
       <div class="button-area">
         <button type="submit">Register</button>
-		  <div class="exit"><button type="submit" onclick="window.location.href='registration-form'"> Exit </button></div>
+		  <div class="exit"><a href="index.php"><button>Exit</button></a></div>
         <span></span>
       </div>
     </form>
